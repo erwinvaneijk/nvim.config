@@ -4,6 +4,28 @@ local M = {
   commit = "ce741eb559c924d72e3a67d2189ad3771a231414",
 }
 
+function M.toggle_opt(prop, scope, on, off)
+  if on == nil then
+    on = true
+  end
+
+  if off == nil then
+    off = false
+  end
+
+  if scope == nil then
+    scope = 'o'
+  end
+
+  return function()
+    if vim[scope][prop] == on then
+      vim[scope][prop] = off
+    else
+      vim[scope][prop] = on
+    end
+  end
+end
+
 function M.config()
   local mappings = {
     ["q"] = { "<cmd>confirm q<CR>", "Quit" },
@@ -129,6 +151,15 @@ function M.config()
       p = { "<cmd>tabp<cr>", "Prev" },
       h = { "<cmd>-tabmove<cr>", "Move Left" },
       l = { "<cmd>+tabmove<cr>", "Move Right" },
+    },
+
+    u = {
+      name = "Toggle settings",
+      h = { "<cmd>set invhlsearch<cr>", "Search result Highlight"},
+      t = { M.toggle_opt('showtabline', 'o', 1, 0), "Show the tabline" },
+      l = { M.toggle_opt('colorcolumn', 'wo', 81, '0'), "Line Length Ruler" },
+      n = { "<cmd>set invnumber<cr>", "Line numbers"},
+      r = { "<cmd>set invrelativenumber<cr>", "Relative Line numbers"},
     },
 
     T = {
