@@ -28,6 +28,17 @@ keymap("v", ">", ">gv", opts)
 
 keymap("x", "p", [["_dP]])
 
+-- Navigate between buffers
+keymap('n', '[b', '<cmd>bprevious<cr>')
+keymap('n', ']b', '<cmd>bnext<cr>')
+
+-- Open new tabpage
+keymap('n', '<leader>tn', '<cmd>tabnew<cr>')
+
+-- Navigate between tabpages
+keymap('n', '[t', '<cmd>tabprevious<cr>')
+keymap('n', ']t', '<cmd>tabnext<cr>')
+
 vim.cmd [[:amenu 10.100 mousemenu.Goto\ Definition <cmd>lua vim.lsp.buf.definition()<CR>]]
 vim.cmd [[:amenu 10.110 mousemenu.References <cmd>lua vim.lsp.buf.references()<CR>]]
 -- vim.cmd [[:amenu 10.120 mousemenu.-sep- *]]

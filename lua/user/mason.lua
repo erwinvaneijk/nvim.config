@@ -8,17 +8,19 @@ local M = {
 }
 
 M.servers = {
-  "lua_ls",
-  "cssls",
-  "html",
-  "tsserver",
-  "astro",
-  "pyright",
-  "bashls",
-  "jsonls",
-  "yamlls",
-  "marksman",
-  "tailwindcss",
+  "awk_ls",         -- Oldschool AWK
+  "clangd",         -- C and C++
+  "cmake",          -- CMake configuration
+  "hls",            -- Haskell
+  "lua_ls",         -- LUA
+  "texlab",         -- LaTeX
+  "marksman",       -- Markdown
+  "pyright",        -- Python
+  "sorbet",         -- Ruby
+  "bashls",         -- Bash
+  "rust_analyzer",  -- Rust
+  "jsonls",         -- JSON
+  "yamlls",         -- Yaml
 }
 
 function M.config()
